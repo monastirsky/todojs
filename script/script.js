@@ -2,6 +2,7 @@ const todo = document.getElementById("wrapper");
 const list = document.getElementById("todo-list");
 const checkAll = document.getElementById("check-all");
 const quantity = document.getElementById("quantity-elements");
+const deleteCheckedButton = document.getElementById("delete-button-container");
 const listElements = [];
 
 let displayStatus = `All`;
@@ -16,7 +17,17 @@ function createNewElement(text) {
 }
 
 function deleteElement(id) {
-  console.log(listElements.splice(id, 1));
+  listElements.splice(id, 1);
+  render();
+}
+
+function deleteCheckedElement() {
+  for (let index = 0; index < listElements.length; index++) {
+    if (listElements[index].status) {
+      listElements.splice(index, 1);
+      index--;
+    }
+  }
   render();
 }
 
@@ -107,6 +118,12 @@ function prepareFooter() {
   } else {
     quantity.innerHTML = "";
   }
+
+  if (listElements.some((element) => element.status)) {
+    deleteCheckedButton.innerHTML = `<input type="button" class="delete-all-checked" value="Delete checked">`;
+  } else {
+    deleteCheckedButton.innerHTML = "";
+  }
 }
 
 function changeDisplayStatus(element) {
@@ -144,6 +161,9 @@ todo.addEventListener(`click`, (event) => {
       break;
     case `check-all`:
       changeAllElements();
+      break;
+    case "delete-all-checked":
+      deleteCheckedElement();
       break;
   }
 });

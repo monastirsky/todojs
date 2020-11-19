@@ -124,6 +124,10 @@ table {
 }
 
 /* ================================================================================================================================================ */
+body {
+  background-color: wheat;
+}
+
 #wrapper {
   max-width: 600px;
   width: 100%;
@@ -141,25 +145,31 @@ table {
   display: flex;
   flex-direction: column;
   align-items: center;
+  box-sizing: border-box;
 }
 
 .todo-top {
+  box-sizing: border-box;
+  border: 1px solid gray;
+  background-color: white;
   display: flex;
   width: 100%;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
 }
 
 .check-all {
   height: 40px;
   width: 40px;
+  box-sizing: border-box;
 }
 
 #input-field {
-  width: 100%;
+  width: 90%;
   height: 40px;
   font-size: 25px;
   box-sizing: border-box;
+  border: none;
 }
 #input-field::placeholder {
   color: gray;
@@ -168,13 +178,17 @@ table {
 }
 #todo-list {
   width: 100%;
+  box-sizing: border-box;
 }
 
 .todo-list__element {
+  box-sizing: border-box;
+  border: 1px solid gray;
   display: flex;
   width: 100%;
   justify-content: space-between;
   align-items: center;
+  background-color: white;
 }
 
 .todo-list__element[status="true"] {
@@ -192,7 +206,9 @@ table {
   margin: 0 10px;
   font-size: 25px;
   text-align: start;
-  word-wrap: break-word;
+  overflow-wrap: anywhere;
+  max-width: 480px;
+  width: 100%;
 }
 
 .list-element__button {
@@ -205,6 +221,16 @@ table {
   background-size: cover;
 }
 
-.display-selection {
+.todo-bottom {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
   margin: 20px 0;
+}
+
+.input-new {
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
 }

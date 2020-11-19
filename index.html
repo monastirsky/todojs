@@ -10,45 +10,49 @@
     <div id="wrapper">
       <h1 class="todo-heder">todo.js</h1>
       <div class="todo">
-        <div class="todo-top">
+        <div class="todo-top"> 
+          <input type="text" calss="filter">
+        </div>
+          <ul id="todo-list"></ul>
+          <div class="todo-bottom">
+            <span id="quantity-elements"> </span>
+            <div class="display-selection">
+              <label
+                ><input
+                  type="radio"
+                  class="display-selection__button"
+                  value="All"
+                  name="display-selection"
+                  checked
+                />All</label
+              >
+              <label>
+                <input
+                  type="radio"
+                  class="display-selection__button"
+                  value="Checked"
+                  name="display-selection"
+                />Checked
+              </label>
+              <label
+                ><input
+                  type="radio"
+                  class="display-selection__button"
+                  value="Unchecked"
+                  name="display-selection"
+                />Unchecked</label
+              >
+            </div>
+            <div id="delete-button-container"></div>
+          </div>
+        </div>
+        <div class="input-new">
           <input type="checkbox" class="check-all" id="check-all" />
           <input
             type="text"
             id="input-field"
             placeholder="What needs to done?"
           />
-        </div>
-        <ul id="todo-list"></ul>
-        <div class="todo-bottom">
-          <span id="quantity-elements"> </span>
-          <div class="display-selection">
-            <label
-              ><input
-                type="radio"
-                class="display-selection__button"
-                value="All"
-                name="display-selection"
-                checked
-              />All</label
-            >
-            <label>
-              <input
-                type="radio"
-                class="display-selection__button"
-                value="Checked"
-                name="display-selection"
-              />Checked
-            </label>
-            <label
-              ><input
-                type="radio"
-                class="display-selection__button"
-                value="Unchecked"
-                name="display-selection"
-              />Unchecked</label
-            >
-          </div>
-          <div class="todo-footer"></div>
         </div>
       </div>
     </div>
