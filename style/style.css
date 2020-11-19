@@ -1,3 +1,210 @@
-todo-liat__element [status="true"] {
-    border: 5px solid crimson;
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* ================================================================================================================================================ */
+#wrapper {
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.todo-heder {
+  display: block;
+  text-align: center;
+  font-size: 100px;
+  margin: 40px 0;
+}
+
+.todo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.todo-top {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.check-all {
+  height: 40px;
+  width: 40px;
+}
+
+#input-field {
+  width: 100%;
+  height: 40px;
+  font-size: 25px;
+  box-sizing: border-box;
+}
+#input-field::placeholder {
+  color: gray;
+  font-size: 25px;
+  font-style: italic;
+}
+#todo-list {
+  width: 100%;
+}
+
+.todo-list__element {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.todo-list__element[status="true"] {
+  text-decoration: line-through;
+  color: gray;
+}
+
+.list-element__checkbox {
+  width: 40px;
+  height: 40px;
+}
+
+.list-element__text {
+  display: block;
+  margin: 0 10px;
+  font-size: 25px;
+  text-align: start;
+  word-wrap: break-word;
+}
+
+.list-element__button {
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  background-color: white;
+  background-image: url(https://emojitool.ru/img/facebook/4.0/cross-mark-4251.png);
+  background-clip: border-box;
+  background-size: cover;
+}
+
+.display-selection {
+  margin: 20px 0;
 }
