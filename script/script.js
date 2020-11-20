@@ -4,6 +4,7 @@ const checkAll = document.getElementById("check-all");
 const quantity = document.getElementById("quantity-elements");
 const deleteCheckedButton = document.getElementById("delete-button-container");
 const listElements = [];
+let filter = "";
 
 let displayStatus = `All`;
 
@@ -55,12 +56,16 @@ function changeOneElement(element) {
 }
 
 function checkStatusAllElement() {
-  if (
-    listElements.every((element) => {
-      return element.status;
-    })
-  ) {
-    checkAll.checked = true;
+  if (listElements.length) {
+    if (
+      listElements.every((element) => {
+        return element.status;
+      })
+    ) {
+      checkAll.checked = true;
+    } else {
+      checkAll.checked = false;
+    }
   } else {
     checkAll.checked = false;
   }
@@ -70,16 +75,20 @@ function prepareShowList() {
   let showList = [];
   switch (displayStatus) {
     case `All`:
-      showList = listElements.map((element, index) => {
+      showList = listElements.filter((element, index) => {
         element.id = index;
-        return element;
+        if (element.value.includes(filter)) {
+          return element;
+        }
       });
       break;
     case `Checked`:
       showList = listElements.filter((element, index) => {
         if (element.status) {
           element.id = index;
-          return element;
+          if (element.value.includes(filter)) {
+            return element;
+          }
         }
       });
       break;
@@ -87,7 +96,9 @@ function prepareShowList() {
       showList = listElements.filter((element, index) => {
         if (!element.status) {
           element.id = index;
-          return element;
+          if (element.value.includes(filter)) {
+            return element;
+          }
         }
       });
       break;
@@ -132,21 +143,31 @@ function changeDisplayStatus(element) {
   render();
 }
 
+function addFilter(event) {}
+
 function render() {
   list.innerHTML = prepareShowList();
   prepareFooter();
   checkStatusAllElement();
 }
 
-todo.addEventListener(`keydown`, (event) => {
-  if (event.code === `Enter`) {
-    let temp = event.target.value.trim();
-    event.target.value = ``;
-    if (temp) {
-      createNewElement(temp);
+todo.addEventListener(`keyup`, (event) => {
+  if (event.target.id === "input-field") {
+    if (event.code === `Enter`) {
+      let temp = event.target.value.trim();
+      event.target.value = ``;
+      if (temp) {
+        createNewElement(temp);
+      }
     }
   }
+  if (event.target.id === "filter") {
+    filter = event.target.value;
+    console.log(event.target.value);
+    render();
+  }
 });
+todo.addEventListener("submit", (event) => {});
 
 todo.addEventListener(`click`, (event) => {
   switch (event.target.className) {
