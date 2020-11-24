@@ -8,6 +8,14 @@ let filter = "";
 
 let displayStatus = `All`;
 
+const escapeCode = (text) =>
+  String(text)
+    .replace(/&/gu, "&amp;")
+    .replace(/</gu, "&lt;")
+    .replace(/>/gu, "&gt;")
+    .replace(/"/gu, "&quot;")
+    .replace(/'/gu, "&#039;");
+
 function createNewElement(text) {
   const temp = {
     status: false,
@@ -143,8 +151,6 @@ function changeDisplayStatus(element) {
   render();
 }
 
-function addFilter(event) {}
-
 function render() {
   list.innerHTML = prepareShowList();
   prepareFooter();
@@ -157,7 +163,7 @@ todo.addEventListener(`keyup`, (event) => {
       let temp = event.target.value.trim();
       event.target.value = ``;
       if (temp) {
-        createNewElement(temp);
+        createNewElement(escapeCode(temp));
       }
     }
   }
@@ -167,7 +173,6 @@ todo.addEventListener(`keyup`, (event) => {
     render();
   }
 });
-todo.addEventListener("submit", (event) => {});
 
 todo.addEventListener(`click`, (event) => {
   switch (event.target.className) {
